@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP6 Survey App - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon"></span>
+                GROUP6 SURVEY APP
+            </div>
+            <nav class="nav-links">
+                <a href="/templates/index.html" class="nav-link">Home</a>
+                <a href="/templates/survey.html" class="nav-link">Create Survey</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1 class="hero-title">GROUP6 SURVEY SYSTEM</h1>
+                    <p class="hero-description">Create, distribute, and manage surveys with ease</p>
+                    <div class="hero-buttons">
+                        <a href="/templates/survey.html" class="btn btn-primary">Create New Survey</a>
+                    </div>
+                    
+                    <div class="status-message">
+                        <span class="status-icon"></span>
+                        <div class="status-text">
+                            <h3>No Surveys Yet?</h3>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Get started Today by creating your First Survey</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="{{ url_for('static',filename='images/photo.png')}}" alt="Survey Management Illustration" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Survey System - GROUP6 SURVEY</p>
+        </div>
+    </footer>
+</body>
+</html>
