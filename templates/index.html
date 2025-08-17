@@ -3,55 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GROUP6 Survey App - Home</title>
+    <title>GROUP6 SURVEYS| Welcome</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Navbar -->
     <header class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <span class="nav-icon"></span>
+                <span class="nav-icon"><i class="fas fa-poll"></i></span>
                 GROUP6 SURVEY APP
             </div>
-            <nav class="nav-links">
-                <a href="/templates/index.html" class="nav-link">Home</a>
-                <a href="/templates/survey.html" class="nav-link">Create Survey</a>
+
+            <!-- Mobile toggle button -->
+            <button class="nav-toggle" id="nav-toggle">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Nav links -->
+            <nav class="nav-links" id="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="nav-link">Survey</a>
             </nav>
+
+            <!-- Mobile dropdown menu -->
+            <div class="mobile-dropdown" id="mobile-dropdown">
+                <a href="{{ url_for('home') }}" class="dropdown-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="dropdown-link">Survey</a>
+            </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main-content">
         <section class="hero-section">
             <div class="hero-container">
                 <div class="hero-left">
                     <h1 class="hero-title">GROUP6 SURVEY SYSTEM</h1>
                     <p class="hero-description">Create, distribute, and manage surveys with ease</p>
+                    
                     <div class="hero-buttons">
-                        <a href="/templates/survey.html" class="btn btn-primary">Create New Survey</a>
+                        <a href="{{ url_for('survey_selection') }}" class="btn btn-primary">Create New Survey</a>
                     </div>
                     
                     <div class="status-message">
                         <span class="status-icon"></span>
                         <div class="status-text">
                             <h3>No Surveys Yet?</h3>
-                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Get started Today by creating your First Survey</p>
+                            <p style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                Get started Today by creating your First Survey
+                            </p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="hero-right">
                     <div class="hero-image">
-                        <img src="{{ url_for('static',filename='images/photo.png')}}" alt="Survey Management Illustration" class="hero-img">
+                        <img src="{{ url_for('static', filename='images/photo.png') }}"
+                              alt="Survey Management Illustration" class="hero-img">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Survey System - GROUP6 SURVEY</p>
         </div>
     </footer>
+
+    <!-- Script for mobile nav toggle -->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>

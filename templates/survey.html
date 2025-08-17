@@ -3,9 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GROUP6 SURVEYS | Create Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h2>dhdhdhdh</h2>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-icon"><i class="fas fa-poll"></i></span>
+                GROUP6 SURVEY APP
+            </div>
+
+            <!-- Mobile toggle button -->
+            <button class="nav-toggle" id="nav-toggle">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+
+            <!-- Nav links -->
+            <nav class="nav-links" id="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="nav-link">Survey</a>
+            </nav>
+
+            <!-- Mobile dropdown menu -->
+            <div class="mobile-dropdown" id="mobile-dropdown">
+                <a href="{{ url_for('home') }}" class="dropdown-link">Home</a>
+                <a href="{{ url_for('survey_selection') }}" class="dropdown-link">Survey</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="survey-section">
+            <div class="survey-container">
+                <!-- Survey Header -->
+                <div class="survey-header">
+                    <h1 class="survey-page-title"><i class="fas fa-plus-circle"></i> CREATE NEW SURVEY</h1>
+                </div>
+
+                <!-- Survey Form -->
+                <form id="survey-form" class="survey-form">
+                    <!-- Survey Title -->
+                    <div class="form-group">
+                        <label for="survey-title" class="form-label">Survey Title <span class="required">*</span></label>
+                        <input type="text" id="survey-title" name="survey-title" class="form-input" required>
+                    </div>
+
+                    <!-- Survey Description -->
+                    <div class="form-group">
+                        <label for="survey-description" class="form-label">Survey Description</label>
+                        <textarea id="survey-description" name="survey-description" class="form-textarea" 
+                                  placeholder="Brief description of your survey..." rows="4"></textarea>
+                    </div>
+
+                    <!-- Questions Section -->
+                    <div class="questions-section">
+                        <h3 class="section-title">Questions</h3>
+                        
+                        <div id="questions-container" class="questions-container">
+                            <!-- Question 1 -->
+                            <div id="question-1" class="question-block">
+                                <div class="question-header">
+                                    <span class="question-number">Question 1</span>
+                                    <button type="button" id="remove-question-1" class="remove-btn"><i class="fas fa-trash"></i> Remove</button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="question-text-1" class="form-label">Question Text <span class="required">*</span></label>
+                                    <input type="text" id="question-text-1" name="question-text-1" class="form-input" required>
+                                </div>
+
+                                <div class="question-settings">
+                                    <div class="form-group">
+                                        <label for="question-type-1" class="form-label">Question Type</label>
+                                        <select id="question-type-1" name="question-type-1" class="form-select">
+                                            <option value="text">Text Response</option>
+                                            <option value="multiple-choice">Multiple Choice</option>
+                                            <option value="checkbox">Checkbox</option>
+                                            <option value="rating">Rating</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="required-1" name="required-1" class="form-checkbox">
+                                        <label for="required-1" class="checkbox-label">Required</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Question Button -->
+                        <button type="button" id="add-question-btn" class="add-question-btn"><i class="fas fa-plus"></i> Add Question</button>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn"><i class="fas fa-arrow-left"></i> Cancel</button>
+                        <button type="submit" class="btn btn-primary create-survey-btn"><i class="fas fa-save"></i> Create Survey</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Survey System - Group6 Survey</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='survey.js') }}"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ body {
     flex-direction: column;
 }
 
-/* Navigation Styles */
+/* ================= NAVIGATION ================= */
 .navbar {
     background: #4a4a4a;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -32,6 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 60px;
+    position: relative;
 }
 
 .nav-brand {
@@ -47,6 +48,7 @@ body {
     font-size: 1.4rem;
 }
 
+/* Links */
 .nav-links {
     display: flex;
     gap: 30px;
@@ -65,7 +67,54 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Main Content */
+/* Toggle button (hidden by default on desktop) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Mobile dropdown menu (hidden by default) */
+.mobile-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.mobile-dropdown.show {
+    display: block;
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-link:last-child {
+    border-bottom: none;
+}
+
+.dropdown-link:hover {
+    background-color: #f8f9fa;
+}
+
+/* ================= MAIN CONTENT ================= */
 .main-content {
     flex: 1;
     max-width: 1200px;
@@ -204,7 +253,7 @@ body {
     border-radius: 8px;
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 .footer {
     background: #1f2937;
     color: white;
@@ -225,17 +274,16 @@ body {
     opacity: 0.8;
 }
 
-/* Responsive Design */
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 15px 20px;
-        gap: 15px;
+    /* Show toggle button */
+    .nav-toggle {
+        display: block;
     }
 
+    /* Hide desktop nav links on mobile */
     .nav-links {
-        gap: 20px;
+        display: none;
     }
 
     .hero-container {
@@ -274,5 +322,300 @@ body {
 
     .main-content {
         padding: 20px 15px;
+    }
+}
+
+
+/* ================= SURVEY PAGE STYLES ================= */
+
+/* Survey Section */
+.survey-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.survey-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.survey-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.survey-page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* Survey Form */
+.survey-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.required {
+    color: #dc2626;
+    margin-left: 2px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-textarea::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Questions Section */
+.questions-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.questions-container {
+    margin-bottom: 30px;
+}
+
+.question-block {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.question-block:hover {
+    border-color: #d1d5db;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.remove-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+.question-settings {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+    margin-top: 15px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2563eb;
+}
+
+.checkbox-label {
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Add Question Button */
+.add-question-btn {
+    background: #6b7280;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.add-question-btn:hover {
+    background: #4b5563;
+    transform: translateY(-2px);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e5e7eb;
+    gap: 20px;
+}
+
+.cancel-btn {
+    background: #6b7280 !important;
+}
+
+.cancel-btn:hover {
+    background: #4b5563 !important;
+}
+
+.create-survey-btn {
+    background: #2563eb !important;
+    min-width: 180px;
+}
+
+.create-survey-btn:hover {
+    background: #1d4ed8 !important;
+}
+
+/* ================= SURVEY RESPONSIVE DESIGN ================= */
+@media (max-width: 768px) {
+    .survey-container {
+        padding: 25px 20px;
+    }
+
+    .survey-page-title {
+        font-size: 1.6rem;
+    }
+
+    .question-settings {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .checkbox-group {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .add-question-btn {
+        max-width: 100%;
+    }
+
+    .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .remove-btn {
+        align-self: flex-end;
     }
 }
